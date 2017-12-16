@@ -35,8 +35,8 @@ class Student
     query.execute([@id, @name, @grade])
   end
 
-  def self.create(name = nil, grade = nil)
-    stu = new(name, grade)
+  def self.create(args)
+    stu = new(args[:name], args[:grade])
     stu.save
     stu
   end
