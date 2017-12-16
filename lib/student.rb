@@ -29,11 +29,9 @@ class Student
   end
 
   def save
-    DB[:conn].execute(
-      <<-SQL
-        insert into students (id, name, grade) values (?, ?, ?)
-      SQL
-    )
+    id = db.execute("select max(id) from pokemon")[0]
+    id = id.nil? ? id + 1 : 1
+    DB[:conn].prepare("insert into students (id, name, grade) values (?, ?, ?)", [id, @name, @grade])
   end
 
 end
