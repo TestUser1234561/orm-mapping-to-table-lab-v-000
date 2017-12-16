@@ -3,13 +3,18 @@ class Student
   attr_accessor :grade, :name
   attr_reader :id
 
+  def initialize(name, grade)
+    @name = name
+    @grade = grade
+  end
+  
   def self.create_table
     DB[:conn].execute(
       <<-SQL
           create table if not exists students (
             id INTEGER PRIMARY KEY,
             name text,
-            grade int
+            grade text
           )
       SQL
     )
