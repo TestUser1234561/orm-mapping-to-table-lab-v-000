@@ -35,4 +35,6 @@ class Student
     query.execute([@id, @name, @grade])
   end
 
+  def self.create()
+
 end
