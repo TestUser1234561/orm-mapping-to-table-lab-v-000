@@ -20,4 +20,12 @@ class Student
     )
   end
 
+  def self.drop_table
+    DB[:conn].execute(
+      <<-SQL
+        drop table if exists students
+      SQL
+    )
+  end
+
 end
