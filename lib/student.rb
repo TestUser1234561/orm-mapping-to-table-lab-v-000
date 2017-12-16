@@ -28,4 +28,12 @@ class Student
     )
   end
 
+  def save
+    DB[:conn].execute(
+      <<-SQL
+        drop table if exists students
+      SQL
+    )
+  end
+
 end
