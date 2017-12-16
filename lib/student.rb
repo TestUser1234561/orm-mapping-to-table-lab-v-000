@@ -31,7 +31,7 @@ class Student
   def save
     DB[:conn].execute(
       <<-SQL
-        drop table if exists students
+        insert into students (id, name, grade) values (?, ?, ?)
       SQL
     )
   end
