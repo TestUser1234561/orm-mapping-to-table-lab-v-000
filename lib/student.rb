@@ -35,6 +35,10 @@ class Student
     query.execute([@id, @name, @grade])
   end
 
-  def self.create()
+  def self.create(name, grade)
+    stu = new(name, grade)
+    new.save
+    new
+  end
 
 end
