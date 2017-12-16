@@ -30,9 +30,9 @@ class Student
 
   def save
     id = DB[:conn].execute("select max(id) from students")[0]
-    id = id.nil? ? id + 1 : 1
+    @id = id.nil? ? id + 1 : 1
     query = DB[:conn].prepare("insert into students (id, name, grade) values (?, ?, ?)")
-    query.execute([id, @name, @grade])
+    query.execute([@id, @name, @grade])
   end
 
 end
